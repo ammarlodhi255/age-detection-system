@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Age Detection</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- This div is  intentionally blank. It creates the transparent black overlay over the video which you can modify in the CSS -->
+      <div class="overlay"></div>
+
+      <!-- The HTML5 video element that will create the background video on the header -->
+      <video
+        playsinline="playsinline"
+        autoplay="autoplay"
+        muted="muted"
+        loop="loop"
+      >
+        <source
+          src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      <!-- The header content -->
+      <div class="container h-200">
+        <div class="d-flex h-200 text-center align-items-center">
+          <div class="w-100 text-white">
+            <h1 class="display-3 white">Age Detection System</h1>
+            <p class="lead mb-0 white">
+              <b>BY Ammar Ahmed</b>
+            </p>
+            <div class="block">
+              <form
+                action="/predict"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <div class="form-group white">
+                  <label for="exampleFormControlFile1"
+                    >Choose Image to Predict</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control-file white"
+                    id="imageChooser"
+                    name="image"
+                  />
+                </div>
+                <img id="image" class="img-thumbnail" width="300px" />
+                <button type="submit" class="btn btn-primary">Predict</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  </body>
+</html>
